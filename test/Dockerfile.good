@@ -1,0 +1,25 @@
+# Builder stage
+FROM node:20-alpine AS builder
+
+LABEL maintainer="dev@example.com" \
+      org.opencontainers.image.description="Node.js app"
+
+WORKDIR /app
+
+# Install dependencies first (cache-friendly layer ordering)
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+# Production stage
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+
+HEALTHCHECK --interval=30s --timeout=3s CMD curl -f http://localhost:3000/health || exit 1
+
+USER node
+
+CMD ["node", "server.js"]

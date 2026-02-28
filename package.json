@@ -1,0 +1,31 @@
+{
+  "name": "dockerfile-grade",
+  "version": "1.0.0",
+  "description": "Grade your Dockerfile A+ to F. Security, size, speed, best practices. Auto-fix suggestions.",
+  "main": "src/index.js",
+  "bin": {
+    "dockerfile-grade": "./bin/grade.js"
+  },
+  "scripts": {
+    "test": "node bin/grade.js --help"
+  },
+  "keywords": [
+    "dockerfile",
+    "docker",
+    "linter",
+    "grader",
+    "devops",
+    "cli",
+    "security"
+  ],
+  "author": "Nicholas Ashkar",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "module"
+}
