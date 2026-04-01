@@ -1,3 +1,5 @@
+![Banner](banner.svg)
+
 # dockerfile-grade
 
 **Your Dockerfile just got graded.**
